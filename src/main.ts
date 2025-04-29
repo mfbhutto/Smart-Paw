@@ -15,7 +15,7 @@ async function bootstrap() {
     credentials: true,
   });
 
-  await app.listen(3000);
-  console.log(`Application is running on: ${await app.getUrl()}`);
+  await app.listen(40870);
+  console.log('Server is running on port 40870');
 }
 bootstrap(); 

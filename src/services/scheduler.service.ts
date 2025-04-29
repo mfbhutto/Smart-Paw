@@ -13,7 +13,8 @@ export class SchedulerService {
     private firebaseService: FirebaseService,
   ) {}
 
-  @Cron(CronExpression.EVERY_MINUTE)
+  //
+  //  @Cron(CronExpression.EVERY_10_HOURS)
   async checkFoodTimes() {
     try {
       console.log('Starting food time check...');
@@ -49,8 +50,8 @@ export class SchedulerService {
             'Food Time Reminder',
             `It's time to feed ${food.pet.petName}!`
           );
-        // }
-      }
+        }
+      
     } catch (error) {
       console.error('Error in food time check:', error);
     }
