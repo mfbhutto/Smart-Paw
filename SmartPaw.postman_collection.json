@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "smartpaw-collection",
+		"name": "SmartPaw Pet Care",
+		"description": "API collection for SmartPaw Pet Care Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Muhammad\",\n  \"lastName\": \"Faheem\",\n  \"userAddress\": \"jaskljdklasdj\",\n  \"userAge\": \"20\",\n  \"userPhone\": \"03115487541\",\n  \"userEmail\": \"user@example.com\",\n  \"userPassword\": \"mfbhutto123456@\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users/register",
+							"host": ["{{base_url}}"],
+							"path": ["users", "register"]
+						}
+					}
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userEmail\": \"user@example.com\",\n  \"userPassword\": \"mfbhutto123456@\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users/login",
+							"host": ["{{base_url}}"],
+							"path": ["users", "login"]
+						}
+					}
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Muhammad\",\n  \"lastName\": \"Faheem\",\n  \"userAddress\": \"123 Street, City\",\n  \"userAge\": \"25\",\n  \"userPhone\": \"03115487541\",\n  \"userEmail\": \"user@example.com\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users/1",
+							"host": ["{{base_url}}"],
+							"path": ["users", "1"]
+						}
+					}
+				},
+				{
+					"name": "Get User with Pets",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/users/1",
+							"host": ["{{base_url}}"],
+							"path": ["users", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Pet Management",
+			"item": [
+				{
+					"name": "Register Pet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 1,\n  \"petName\": \"Buddy\",\n  \"petCategory\": \"Dog\",\n  \"petAge\": \"3\",\n  \"petBreed\": \"Golden Retriever\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/pets",
+							"host": ["{{base_url}}"],
+							"path": ["pets"]
+						}
+					}
+				},
+				{
+					"name": "Get User's Pets",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/pets/user/1",
+							"host": ["{{base_url}}"],
+							"path": ["pets", "user", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Food Management",
+			"item": [
+				{
+					"name": "Add Food Information",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"petId\": 1,\n  \"favoriteFood\": \"Chicken\",\n  \"eatingTime1\": \"08:00:00\",\n  \"eatingTime2\": \"13:00:00\",\n  \"eatingTime3\": \"19:00:00\",\n  \"fcmToken\": \"fcm_token_12345\",\n  \"deviceId\": \"device_12345\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/food",
+							"host": ["{{base_url}}"],
+							"path": ["food"]
+						}
+					}
+				},
+				{
+					"name": "Get Food Times",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/food/times",
+							"host": ["{{base_url}}"],
+							"path": ["food", "times"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Blog Management",
+			"item": [
+				{
+					"name": "Create Blog",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 1,\n  \"blogTitle\": \"How to take care of your pet\",\n  \"blogText\": \"Taking care of pets requires proper feeding, grooming, and veterinary checkups...\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/blogs",
+							"host": ["{{base_url}}"],
+							"path": ["blogs"]
+						}
+					}
+				},
+				{
+					"name": "Get All Blogs",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{base_url}}/blogs",
+							"host": ["{{base_url}}"],
+							"path": ["blogs"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000"
+		}
+	]
+} 
